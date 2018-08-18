@@ -18,7 +18,7 @@ var pacientes = document.querySelector(".paciente");
        /**O evento é escutado por todos os filhos do elemento! cuidado
         * para evitar o Event Bubblig vamos usar o event parent
         */
-var pacientes = document.querySelector("table");
+var pacientes = document.querySelector("#tabela-pacientes");
        
 pacientes.addEventListener("dblclick", function(event){
     //var alvoEvento = event.target;

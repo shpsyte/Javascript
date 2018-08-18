@@ -9,7 +9,7 @@ botaoBuscar.addEventListener("click", function (event) {
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "https://api-pacientes.herokuapp.com/sspacientes");
+    xhr.open("GET", "https://api-pacientes.herokuapp.com/pacientes");
 
 
     //adicionar a escutador LOAD para quando ele terminar de carregar a pagina/requisicao

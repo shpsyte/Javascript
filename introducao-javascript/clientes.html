@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Busca Clientes na Isco Sistemas</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="titulo">Clientes da Isco </h1>
+        </div>
+    </header>
+    <main>
+        <section class="container">
+            <h2>Meus Clientes</h2>
+            <input id="filter" class="filtro" type="text" placeholder="Filtrar">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Razao</th>
+                        <th>Fantasia</th>
+                        <th>Email</th>
+                        <th>Fone</th>
+                    </tr>
+                </thead>
+                <tbody id="clientes">
+                    <!-- <tr class="paciente" id="primeiro-paciente">
+                        <td class="info-nome">Paulo</td>
+                        <td class="info-peso">100</td>
+                        <td class="info-altura">2.00</td>
+                        <td class="info-gordura">10</td>
+                        <td class="info-imc">0</td>
+                    </tr> -->
+                </tbody>
+            </table>
+            <button id="buscar-clientes" class="botao bto-principal">Buscar</button>
+        </section>
+        <section class="container">
+                <h2 id="titulo-form">Adicionar novo Cliente</h2>
+                <form id="form-adiciona">
+                    <div class="grupo">
+                        <label for="nome">Nome:</label>
+                        <input id="nome" name="nome" type="text" placeholder="digite o nome do seu cliente" class="campo">
+                    </div>
+                    <div class="grupo">
+                        <label for="fantasia">Fantasia:</label>
+                        <input id="fantasia" name="peso" type="text" placeholder="digite a fantasia do seu cliente" class="campo campo-medio">
+                    </div>
+                    <div class="grupo">
+                        <label for="email">Email:</label>
+                        <input id="email" name="altura" type="text" placeholder="digite o email do seu cliente" class="campo campo-medio">
+                    </div>
+                    <div class="grupo">
+                        <label for="fone">Fone:</label>
+                        <input id="fone" type="text" placeholder="digite o fone do seu cliente" class="campo campo-medio">
+                    </div>
+    
+                    <button id="adicionar-cliente" class="botao bto-principal">Adicionar</button>
+                </form>
+    
+            </section>
+             
+    </main>
+    <script src="js/addCustomer.js"></script>
+    <script src="js/fncTabela.js"></script>
+    <script src="js/getCustomer.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/remove-clientes.js"></script>
+
+
+    <script>
+      getCustomer();
+    </script>
+
+</body>
+
+</html>
