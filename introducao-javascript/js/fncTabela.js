@@ -1,7 +1,7 @@
 function getTd(nome, classe) {
 
     var td = document.createElement("td");
-    td.classList.add(classe)
+    td.classList.add(classe);
     td.textContent = nome;
     return td;
 }
