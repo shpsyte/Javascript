@@ -135,6 +135,22 @@ function validaPaciente(paciente)
 
 }
 
+
+function adicionaPacienteNaTabela(paciente) {
+    
+    var pacienteTr = montaTr(paciente);
+
+    var erro = validaPaciente(paciente);
+    if (erro.length > 0)
+    {
+        mostraMensagemDeErro(erro);
+        return;
+    }
+
+    adicionaTrNaTabela(document.querySelector("#tabela-pacientes"), pacienteTr);
+
+
+}
 function adicionaTrNaTabela(tabela, pacienteTr) {
     tabela.appendChild(pacienteTr);
 }
