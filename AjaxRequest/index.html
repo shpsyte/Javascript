@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Simple Ajax load into DIV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
+</head>
+<body>
+    
+
+	<header>
+		<div class="container">
+			<h1 class="titulo">Load Ajax HTML and Into Div</h1>
+		</div>
+	</header>
+	<main>
+		<section class="container">
+            <h2>Load url</h2>
+            
+			<label>Url - CORS are enabled!</label>
+            <input style="width: 350px" type="text" name="url" id="url" 
+                placeholder="Url to Get">
+                <label>Parameters</label>
+                <input style="width: 350px" type="text" name="parms" id="parms" 
+                placeholder="var=xpto&var1=xpto">
+                <br>
+                <label>Method</label>
+                <input type="radio" name="method" value="GET" checked="checked"> GET<br>
+                <input type="radio" name="method" value="POST"> POST <br>
+                <input type="radio" name="method" value="DELETE"> DELETE
+
+              <br><br>
+            <button id="buscar-url" class="botao bto-principal">Load</button>
+            
+            <table>
+                <thead id="headertable"> 
+                </thead>
+                <tbody id="target">
+                    
+                </tbody>
+
+            </table>
+			 
+		</section>
+		 
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>
