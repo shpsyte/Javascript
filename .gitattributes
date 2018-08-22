@@ -1,0 +1,3 @@
+vi .gitattributes
+src/main/resources/static/* linguist-vendored
+*.rb linguist-language=Javascript
