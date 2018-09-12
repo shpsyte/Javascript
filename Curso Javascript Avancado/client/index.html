@@ -33,10 +33,10 @@
     </form>
     
     <div class="text-center">
-        <button class="btn btn-primary text-center" type="button">
+        <button onclick="negociacaoController.importaNegociacoes()" class="btn btn-primary text-center" type="button">
             Importar Negociações
         </button>
-        <button class="btn btn-primary text-center" type="button">
+        <button class="btn btn-primary text-center" onclick="negociacaoController.apaga()" type="button">
             Apagar
         </button>
     </div> 
@@ -53,8 +53,41 @@
    <script src="js/app/views/NegociacoesView.js"></script>
    <script src="js/app/models/Mensagem.js"></script>
    <script src="js/app/views/MensagemView.js"></script>
+   <script src="js/app/services/ProxyFactory.js"></script>
+   <script src="js/app/helpers/Bind.js"></script>
+   <script src="js/app/services/HttpServices.js"></script>
+   <script src="js/app/services/NegociacaoService.js"></script>
   <script>
-    let negociacaoController = new NegociacaoController();
+    var negociacaoController = new NegociacaoController();
+
+
+//     let lista = new Proxy(new ListaNegociacoes,{
+//         get: function (target, prop, receiver) {
+
+//             //metodos e funcoes sempre pega um GET
+
+
+//             // cria uma lista par ser intercepada && é uma funcao ?
+//             if (['adiciona','esvazia'].includes(prop) && typeof(target[prop]) == typeof(Function)){
+
+//                 return function () {
+//                     console.log(`intercepando ${prop}`);
+//                     /// arguments possuis todos os arqgumetnos da funcoes original
+//                     /// Replet.apply faz a esta funcao receber todos os argumentos
+//                     Reflect.apply(target[prop], target, arguments);
+//                 }
+
+//             }
+
+//             return Reflect.get(target, prop, receiver);
+//         },
+//         set:  function (target, prop, value, receiver) {
+//             return Reflect.set(target, prop, value, receiver);
+//         }
+
+//     })
+
+//    lista.adiciona(new Negociacao(new Date(),1,100));
   
   </script>
     

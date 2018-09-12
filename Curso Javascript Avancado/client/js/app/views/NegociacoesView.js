@@ -28,18 +28,11 @@ class NegociacaoView extends View {
                       </tr>
                      `).join('')}
                 </tbody>
-                <tfoot>
-                  <tr>
+                    <tfoot>
                     <td colspan="3"></td>
-                    <td>${model.negociacoes.reduce( (total, n) => (total + n.volume), 0.0)
-                        // (function () {
-                        //     let valor = 0;
-                        //     model.negociacoes.forEach(item => valor+= item.volume);
-                        //     return valor;
-                        // })()
-                       }
+                    <td>
+                        ${model.negociacoes.reduce((total, n) => total + n.volume, 0.0)}
                     </td>
-                  </tr>
                 </tfoot>
                </table>
             `;
