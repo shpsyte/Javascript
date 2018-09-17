@@ -1,5 +1,8 @@
+//sistema de modulo
+import {View} from './View';
+
 // extends é o conceito de herança do javascript
-class MensagemView extends View {
+export class MensagemView extends View {
 
     constructor(elemento){
  // super manda o elemento para a classe pai / herdada

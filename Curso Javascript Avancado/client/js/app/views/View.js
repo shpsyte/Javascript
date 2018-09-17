@@ -1,4 +1,4 @@
-class View{
+export class View{
 
     constructor(elemento){
 
@@ -13,7 +13,6 @@ class View{
     
     update(model){
        
-
         this._elemento.innerHTML = this.template(model);
     }
 

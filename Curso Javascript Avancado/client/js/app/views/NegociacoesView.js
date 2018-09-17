@@ -1,5 +1,8 @@
 // extends é o conceito de herança do javascript
-class NegociacaoView extends View {
+import {View} from './View';
+import {DateHelper} from '../helpers/DateHelper';
+
+export class NegociacaoView extends View {
     
     constructor(elemento){
         // super manda o elemento para a classe pai / herdada
