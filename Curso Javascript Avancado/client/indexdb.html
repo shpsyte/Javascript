@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aprendendo Index DB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+    <script src="js/app/models/Negociacao.js"></script>
+</head>
+<body>
+    <script>
+        var connection;
+        var openRequest = indexedDB.open('alura', 4);
+        
+        openRequest.onupgradeneeded = e =>  {
+            
+            console.log("Cria um altera um banco já existente");
+            let minhaConexao = e.target.result;
+
+            if (minhaConexao.objectStoreNames.contains('negociacoes')){
+
+                minhaConexao.deleteObjectStore('negociacoes');
+            }
+
+            minhaConexao.createObjectStore('negociacoes', { autoIncrement: true});
+        };
+
+        openRequest.onsuccess = e => {
+
+            console.log('Conexão ok');
+            connection = e.target.result;
+        };
+
+        openRequest.onerror = e =>  {
+            
+            console.log(`Erro do ${e.target.error}` )
+        };
+
+        function adiciona(){
+
+            // cria uma transacao 
+            let transaciton = connection.transaction(['negociacoes'], ['readwrite']);
+
+            // recupear o objeto store para fazer as operaçoes de persistencia
+            let store = transaciton.objectStore('negociacoes');
+
+            // cria um objeto para ser armazenado
+            let negociacao = new Negociacao(new Date(),1,10);
+            
+            // devolve um requesta do indexDb, pois ele não grava direto, apenas uma requisição
+            let request = store.add(negociacao);
+
+
+            request.onsuccess = e =>{
+
+                console.log("Tudo certo, includio com sucesso");
+            }
+
+            request.onerror = e =>{
+
+                console.log(`Erro na inclusao ${e.target.error}`);
+            }
+
+        }
+
+        function listaTodos() {
+            
+            // cria uma transacao 
+            let transaciton = connection.transaction(['negociacoes'], ['readwrite']);
+
+            // recupear o objeto store para fazer as operaçoes de persistencia
+            let store = transaciton.objectStore('negociacoes');
+
+            // cria m ponteiro para as linhas gravadas na store
+            let cursor = store.openCursor();
+
+            let negociacoes = [];
+            cursor.onsuccess = e =>{
+
+                //pega a linha da store
+                let atual = e.target.result;
+
+                //tem dados no cursosr
+                if (atual){
+
+                    var dado = atual.value;
+                    
+
+                    negociacoes.push(new Negociacao(dado._data, dado._quantidade, dado._valor));
+
+                    atual.continue();
+                }  else{
+                    
+                    console.log(negociacoes);
+                }
+
+            }
+
+            cursor.onerror = e =>{
+
+
+            }
+ 
+        }
+
+
+        
+
+
+
+
+        
+
+        
+    </script>
+
+     
+    
+</body>
+</html>

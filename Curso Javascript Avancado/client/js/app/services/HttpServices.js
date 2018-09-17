@@ -1,48 +1,75 @@
 class   HttpServices{
 //get
+
+   _handleErrors(res){
+       if (res.ok){
+           return res;
+       }else
+       {
+           throw new Error(res.statusText);
+       }
+
+   }
+
     get(url){
-        return new Promise((resolve, reject) =>{
-            let xhr = new XMLHttpRequest();
-            xhr.open('GET',url);
-            xhr.onreadystatechange = () => {
+
+        //usando novos recurso do es 2016
+        return fetch(url)
+         .then(res => this._handleErrors(res))
+         .then(res => res.json());
+
+
+        // return new Promise((resolve, reject) =>{
+        //     let xhr = new XMLHttpRequest();
+        //     xhr.open('GET',url);
+        //     xhr.onreadystatechange = () => {
                
-                 // requisicao pronta 
-                if (xhr.readyState == 4){
+        //          // requisicao pronta 
+        //         if (xhr.readyState == 4){
     
-                    if(xhr.status == 200){
-                        resolve(JSON.parse(xhr.responseText));
-                    } else{
-                        reject('Não foi possivel receber as negociações');
-                    }
-                }
-            };
-            xhr.send();
-        });
+        //             if(xhr.status == 200){
+        //                 resolve(JSON.parse(xhr.responseText));
+        //             } else{
+        //                 reject('Não foi possivel receber as negociações');
+        //             }
+        //         }
+        //     };
+        //     xhr.send();
+        // });
     }
 
     post(url, dado) {
 
+        return fetch(url, {
+                    headers: {'Content-type': 'application/json'},
+                    method: 'post',
+                    body: JSON.stringify(dado)
+                })
+                .then(res => res.json());
 
-        return new Promise((resolve, reject) => {
 
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", url, true);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.onreadystatechange = () => {
+        // usando es 2016
 
-                if (xhr.readyState == 4) {
+        // return new Promise((resolve, reject) => {
 
-                    if (xhr.status == 200) {
+        //     let xhr = new XMLHttpRequest();
+        //     xhr.open("POST", url, true);
+        //     xhr.setRequestHeader("Content-type", "application/json");
+        //     xhr.onreadystatechange = () => {
 
-                        resolve(JSON.parse(xhr.responseText));
-                    } else {
+        //         if (xhr.readyState == 4) {
 
-                        reject(xhr.responseText);
-                    }
-                }
-            };
-            xhr.send(JSON.stringify(dado)); // usando JSON.stringify para converter objeto em uma string no formato JSON.
-        });
+        //             if (xhr.status == 200) {
+
+        //                 resolve(JSON.parse(xhr.responseText));
+        //             } else {
+
+        //                 reject(xhr.responseText);
+        //             }
+        //         }
+        //     };
+        //     xhr.send(JSON.stringify(dado)); // usando JSON.stringify para converter objeto em uma string no formato JSON.
+        // });
 
     }
 }
