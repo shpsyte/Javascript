@@ -12,7 +12,7 @@
     <h1 class="text-center">Negociações</h1>
     <div id="mensagemView"> </div>
     
-    <form class="form" /*onsubmit="negociacaoController.adiciona(event);*/ ">
+    <form class="form" onsubmit="negociacaoController.adiciona(event); ">
         
         <div class="form-group">
             <label for="data">Data</label>
@@ -36,7 +36,7 @@
         <!-- <button onclick="negociacaoController.importaNegociacoes()" class="btn btn-primary text-center" type="button">
             Importar Negociações
         </button> -->
-        <button class="btn btn-primary text-center" /*onclick="negociacaoController.apaga()"*/ type="button">
+        <button class="btn btn-primary text-center" onclick="negociacaoController.apaga()" type="button">
             Apagar
         </button>
     </div> 
@@ -44,15 +44,8 @@
     <br>
 
     <div id=negociaceosView></div>
-    <script src="node_modules/systemjs/dist/system.js"></script>
     
-    <script>
-        System.defaultJSExtensions = true;
-        System.import('js/app/boot');
-    </script>
-
-<!--     
-   <script src="js/app/polyfill/fetch.js"></script>
+   <!-- <script src="js/app/polyfill/fetch.js"></script> -->
    <script src="js/app/views/View.js"></script>
    <script src="js/app/models/Negociacao.js"></script>
    <script src="js/app/models/ListaNegociacoes.js "></script>
@@ -66,11 +59,11 @@
    <script src="js/app/services/HttpServices.js"></script>
    <script src="js/app/services/NegociacaoService.js"></script>
    <script src="js/app/services/ConnectionFactory.js"></script>
-   <script src="js/app/dao/NegociacaoDao.js"></script> -->
+   <script src="js/app/dao/NegociacaoDao.js"></script>  
   <script>
 
 
-   // var negociacaoController = new NegociacaoController();
+    var negociacaoController = new NegociacaoController();
 
 
 //     let lista = new Proxy(new ListaNegociacoes,{

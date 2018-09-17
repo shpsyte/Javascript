@@ -1,14 +1,14 @@
-import {NegociacaoService} from '../services/NegociacaoService';
-import {NegociacaoView} from '../views/NegociacoesView';
-import {ListaNegociacoes} from '../models/ListaNegociacoes';
-import {MensagemView} from '../views/MensagemView';
-import {Mensagem} from '../models/Mensagem';
-import {DateHelper} from '../helpers/DateHelper';
-import {Bind} from '../helpers/Bind';
-import {Negociacao} from '../models/Negociacao';
+// import {NegociacaoService} from '../services/NegociacaoService';
+// import {NegociacaoView} from '../views/NegociacoesView';
+// import {ListaNegociacoes} from '../models/ListaNegociacoes';
+// import {MensagemView} from '../views/MensagemView';
+// import {Mensagem} from '../models/Mensagem';
+// import {DateHelper} from '../helpers/DateHelper';
+// import {Bind} from '../helpers/Bind';
+// import {Negociacao} from '../models/Negociacao';
 
 
-export class NegociacaoController{
+class NegociacaoController{
 
 
     constructor() {
