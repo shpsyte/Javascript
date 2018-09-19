@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jasmine - Teste em Javascript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+<body>
+
+    
+
+    <script>
+        function MaiorMenor()  {
+            var maior;
+            var menor;
+
+            var clazz = {
+
+                encontra: nums => {
+                    menor = Number.MAX_VALUE;
+                    maior = Number.MIN_VALUE;
+
+                    nums.forEach(num => {
+                        if (num < menor) menor = num;
+                        else if (num > maior) maior = num;
+                    });
+                },
+                pegaMaior : () => maior,
+                pegaMenor:  () =>  menor
+            }
+
+            return clazz;
+        }
+
+
+        var algoritmo = new MaiorMenor();
+        algoritmo.encontra([1,2,3,5,8,6,9]);
+
+        console.log(algoritmo.pegaMaior());
+        console.log(algoritmo.pegaMenor());
+    </script>
+    
+</body>
+</html>
